@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>AI Chat Studio</title>
+<link rel="stylesheet" href="style.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/marked/12.0.2/marked.min.js"></script>
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <button class="new-chat-btn" id="newChatBtn">+ নতুন চ্যাট</button>
+      <div class="conversation-list" id="conversationList"></div>
+      <button class="settings-btn" id="settingsBtn">⚙ সেটিংস</button>
+    </aside>
+
+    <!-- Main -->
+    <main class="main">
+      <header class="topbar">
+        <button class="menu-toggle" id="menuToggle">☰</button>
+        <div class="mode-switch">
+          <button class="mode-btn active" data-mode="chat">💬 চ্যাট</button>
+          <button class="mode-btn" data-mode="image">🎨 ছবি তৈরি</button>
+        </div>
+        <div class="provider-badge" id="providerBadge">কোনো API key সেট নেই</div>
+      </header>
+
+      <section class="messages" id="messages">
+        <div class="welcome" id="welcome">
+          <h1>AI Chat Studio</h1>
+          <p>OpenAI বা Anthropic (Claude) দিয়ে চালিত আপনার নিজের ChatGPT‑style অ্যাপ।</p>
+          <p class="hint">শুরু করতে প্রথমে ⚙ সেটিংস থেকে আপনার API key দিন।</p>
+        </div>
+      </section>
+
+      <form class="composer" id="composerForm">
+        <div class="attach-row" id="attachRow"></div>
+        <div class="composer-inner">
+          <button type="button" class="icon-btn" id="fileBtn" title="ফাইল/PDF যোগ করুন">📎</button>
+          <input type="file" id="fileInput" accept=".pdf,.txt,.md,.csv,.json,.js,.py,.html,.css" hidden />
+          <textarea id="promptInput" placeholder="এখানে লিখুন... (Shift+Enter নতুন লাইনের জন্য)" rows="1"></textarea>
+          <button type="button" class="icon-btn" id="micBtn" title="ভয়েস ইনপুট">🎤</button>
+          <button type="submit" class="send-btn" id="sendBtn">পাঠান</button>
+        </div>
+      </form>
+    </main>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal-overlay" id="settingsModal">
+    <div class="modal">
+      <h2>সেটিংস</h2>
+
+      <label>AI প্রোভাইডার</label>
+      <select id="providerSelect">
+        <option value="openai">OpenAI (GPT)</option>
+        <option value="anthropic">Anthropic (Claude)</option>
+      </select>
+
+      <label>মডেল</label>
+      <select id="modelSelect"></select>
+
+      <label>API Key</label>
+      <input type="password" id="apiKeyInput" placeholder="sk-... অথবা sk-ant-..." />
+      <p class="small-note">আপনার key শুধু আপনার ব্রাউজারে (localStorage) সংরক্ষিত হয় — আমাদের সার্ভারে সেভ হয় না।</p>
+
+      <label class="toggle-row">
+        <input type="checkbox" id="voiceOutToggle" />
+        AI-এর উত্তর জোরে পড়ুন (Voice Output)
+      </label>
+
+      <div class="modal-actions">
+        <button id="saveSettingsBtn" class="primary-btn">সংরক্ষণ করুন</button>
+        <button id="closeSettingsBtn" class="secondary-btn">বন্ধ করুন</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

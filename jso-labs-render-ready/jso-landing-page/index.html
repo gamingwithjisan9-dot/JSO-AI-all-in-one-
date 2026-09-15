@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>JSO Labs — AI Chat Studio & SEO Audit Tool</title>
+<meta name="description" content="দুটো AI-চালিত টুল এক জায়গা থেকে: AI Chat Studio (চ্যাট/ইমেজ) এবং JSO AI (ওয়েবসাইট SEO অডিট)।" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <div class="brand">🧠 <span>JSO Labs</span></div>
+      <nav class="nav-links">
+        <a href="#products">প্রোডাক্ট</a>
+        <a href="#about">সম্পর্কে</a>
+        <a href="#contact">যোগাযোগ</a>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero-inner">
+      <h1>একই জায়গা থেকে, <span class="grad">দুটো আলাদা AI টুল</span></h1>
+      <p class="sub">প্রতিটা টুলের নিজস্ব অ্যাকাউন্ট ও লগইন — যেটা দরকার সেটাতেই ঢুকুন।</p>
+    </div>
+  </section>
+
+  <section class="products" id="products">
+    <div class="products-inner">
+
+      <div class="card">
+        <div class="card-icon">💬</div>
+        <h2>AI Chat Studio</h2>
+        <p>OpenAI ও Anthropic (Claude) দিয়ে চালিত চ্যাট অ্যাসিস্ট্যান্ট — টেক্সট চ্যাট, ছবি তৈরি, ফাইল/PDF পড়া এবং ভয়েস ইনপুট/আউটপুট।</p>
+        <ul class="features">
+          <li>Streaming চ্যাট (GPT / Claude)</li>
+          <li>DALL·E দিয়ে ছবি তৈরি</li>
+          <li>PDF/ফাইল আপলোড ও পড়া</li>
+          <li>ভয়েস ইনপুট ও আউটপুট</li>
+        </ul>
+        <div class="card-actions">
+          <a class="btn primary" id="chatLoginLink" href="#" target="_blank" rel="noopener">লগইন / সাইন আপ</a>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-icon">📈</div>
+        <h2>JSO AI — SEO Audit</h2>
+        <p>যেকোনো ওয়েবসাইটের URL দিন, সাথে সাথে পাবেন টেকনিক্যাল ও অন-পেজ SEO স্কোর, সমস্যা চিহ্নিতকরণ ও AI সুপারিশ।</p>
+        <ul class="features">
+          <li>রিয়েল-টাইম SEO স্ক্যান</li>
+          <li>Title / Meta / H1 / Alt‑text চেক</li>
+          <li>AI-জেনারেটেড রিপোর্ট</li>
+          <li>ড্যাশবোর্ডে রিপোর্ট হিস্টরি</li>
+        </ul>
+        <div class="card-actions">
+          <a class="btn primary" id="seoLoginLink" href="#" target="_blank" rel="noopener">লগইন / সাইন আপ</a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="about-inner">
+      <h2>কেন দুটো আলাদা অ্যাকাউন্ট?</h2>
+      <p>প্রতিটা টুলের কাজ, ডেটা ও বিলিং সম্পূর্ণ আলাদা — তাই প্রতিটার নিজস্ব সাইনআপ/লগইন সিস্টেম রয়েছে। এতে দুটো প্রোডাক্টই স্বাধীনভাবে আপডেট, স্কেল ও পরিচালনা করা সহজ হয়।</p>
+    </div>
+  </section>
+
+  <footer class="footer" id="contact">
+    <p>© <span id="year"></span> JSO Labs. সব অধিকার সংরক্ষিত।</p>
+  </footer>
+
+  <script src="config.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+    document.getElementById("chatLoginLink").href = window.APP_URLS.chatStudio;
+    document.getElementById("seoLoginLink").href = window.APP_URLS.seoAudit;
+  </script>
+</body>
+</html>

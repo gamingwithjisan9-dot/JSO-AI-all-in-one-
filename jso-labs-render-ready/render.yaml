@@ -1,0 +1,36 @@
+services:
+  - type: static
+    name: jso-landing-page
+    rootDir: jso-landing-page
+    buildCommand: ""
+    staticPublishPath: .
+
+  - type: web
+    name: jso-ai-seo-audit
+    rootDir: jso-ai-seo-audit
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --bind 0.0.0.0:$PORT app:app
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: FLASK_SECRET_KEY
+        generateValue: true
+      - key: DATABASE_PATH
+        value: jso_ai.db
+      - key: OPENAI_API_KEY
+        sync: false
+      - key: OPENAI_MODEL
+        value: gpt-5.6-luna
+
+  - type: web
+    name: ai-chat-studio
+    rootDir: ai-chat-studio
+    runtime: node
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.0
